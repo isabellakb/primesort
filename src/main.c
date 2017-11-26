@@ -22,9 +22,10 @@ int primo (int n){
 }
 
 int main(){
-  int numero=0;
+  int numero;
   int nao_primo[200000];
-  int i=0, j=0, k=0, aux;
+  int i=0, j=0, k=0, aux
+  scanf ("%d", &numero); //Lê número digitado  
   while (numero!=-1){
     scanf ("%d", &numero); //Lê número digitado
     if (primo(numero)==0){ //Salva os números da sequência digitada que não são primos
