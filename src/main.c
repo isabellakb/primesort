@@ -27,11 +27,11 @@ int main(){
   int i=0, j=0, k=0, aux
   scanf ("%d", &numero); //Lê número digitado  
   while (numero!=-1){
-    scanf ("%d", &numero); //Lê número digitado
     if (primo(numero)==0){ //Salva os números da sequência digitada que não são primos
       nao_primo[k]=numero;
       k++;
     }
+    scanf ("%d", &numero); //Lê número digitado
   }
   for (i=0; i<k; i++){ //Ordena por ordem de tamanho os números não primos
     j=i+1;
