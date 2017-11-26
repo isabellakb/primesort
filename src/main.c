@@ -1,17 +1,47 @@
-/* Contador de palavras
- *
- * Este programa recebera uma serie de caracteres representando palavras em sua
- * entrada. Ao receber um caractere fim de linha ('\n'), deve imprimir na tela o
- * numero de palavras separadas que recebeu e, apos, encerrar.
- */
-
 #include <stdio.h>
 
-int main() {
+/*Calcula quantos divisores tem um determinado número*/
+int divisores (int num){
+  int divisor=0;
+  int i;
+  for(i=0; i<num; i++){
+    int a=i+1;
+    if (num%a==0)
+      divisor++;
+  }
+  return divisor;
+}
 
-  int x, y;
+/*Verifica se um número é primo ou não*/
+int primo (int n){
+  int d=divisores(n);
+  if(d==2)
+    return 1;
+  else
+    return 0;
+}
 
-  scanf("%d %d\n", &x, &y);
-  printf("%d\n", x + 200);
-  return 0;
+int main(){
+  int numero=0;
+  int nao_primo[200000];
+  int i=0, j=0, k=0, aux;
+  while (numero!=-1){
+    scanf ("%d", &numero); //Lê número digitado
+    if (primo(numero)==0){ //Salva os números da sequência digitada que não são primos
+      nao_primo[k]=numero;
+      k++;
+    }
+  }
+  for (i=0; i<k; i++){ //Ordena por ordem de tamanho os números não primos
+    j=i+1;
+    if (nao_primo[i]<nao_primo[j]){
+      aux=nao_primo[i];
+      nao_primo[i]=nao_primo[j];
+      nao_primo[j]=aux;
+    }
+  }
+  for (i=0; i<k; i++){ //Imprime todos os números não primos ordenados
+    printf ("%d", nao_primo[i]);
+    printf ("\n");
+  }
 }
