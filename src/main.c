@@ -32,23 +32,10 @@ int main(){
     }
     scanf ("%d", &numero); //Lê número digitado
   }
-  /*for (i=0; i<k; i++){ //Ordena por ordem de tamanho os números não primos
-    j=i+1;
-    if (nao_primo[i]<nao_primo[j]){
-      aux=nao_primo[i];
-      nao_primo[i]=nao_primo[j];
-      nao_primo[j]=aux;
-    }
-  }*/
   if((ordenar=popen("sort -n -r", "w"))==NULL){ // Ordena números do maior para menor
   perror("popen");
   exit(1);
-}
-  /*for (i=0; i<k; i++){ //Imprime todos os números não primos ordenados
-    printf ("%d", nao_primo[i]);
-    printf ("\n");
-  }*/
+  }
   for (i=0; i<k; i++)
     fprintf(ordenar, "%d\n", nao_primo[i]); //Imprime números não primos ordenados
-
 }
