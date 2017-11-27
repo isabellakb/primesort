@@ -6,13 +6,14 @@
 /*Verifica se um número tem 1, 2 ou mais divisores*/
 int divisores (int num){
   int divisor=0;
-  int i;
-  for(i=0; i<num; i++){
+  int i=0;
+  while(i<num){
     int a=i+1;
     if (num%a==0)
       divisor++;
     if (divisor>2)
       break;
+    i++;
   }
   return divisor;
 }
