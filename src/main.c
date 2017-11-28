@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <unistd.h>
 
 /*Verifica se um número tem 1, 2 ou mais divisores*/
@@ -32,10 +31,16 @@ int main(){
     }
     scanf ("%d", &numero); //Lê número digitado
   }
+
   if((ordenar=popen("sort -n -r", "w"))==NULL){ // Ordena números do maior para menor
   perror("popen");
   exit(1);
-  }
+  }  
+  
   for (i=0; i<k; i++)
     fprintf(ordenar, "%d\n", nao_primo[i]); //Imprime números não primos ordenados
+  
+  pclose(ordenar);
+  
+  return 0;
 }
